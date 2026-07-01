@@ -3,6 +3,19 @@ from PIL import Image
 import xlsxwriter
 
 def procesar_imagenes():
+    """
+    Realiza el procesamiento por lotes de imágenes y genera un reporte en Excel.
+
+    Esta función busca imágenes en formato JPG, JPEG o PNG dentro de la carpeta 
+    'imagenes_entrada', verifica la existencia de una marca de agua, redimensiona 
+    las imágenes a un tamaño máximo de 800x800 píxeles, las convierte a escala 
+    de grises, les aplica la marca de agua en la esquina inferior derecha y las 
+    guarda en 'imagenes_salida'. Además, registra los metadatos originales de 
+    cada imagen procesada en un libro de Excel.
+
+    :raises FileNotFoundError: Si no se encuentra el archivo de la marca de agua.
+    :return: None
+    """
     ruta_entrada = "imagenes_entrada"
     ruta_salida = "imagenes_salida"
     ruta_marca = "marca_agua.png"
